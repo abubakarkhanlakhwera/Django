@@ -1,1 +1,1 @@
-In this repository I have practiced the fullstack web development.
+In this repository I have practiced django concepts.
