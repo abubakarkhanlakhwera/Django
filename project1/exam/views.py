@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse as hres
+from django.template import loader
 
 def testpaper(req):
-    s="<h1>This is a test paper</h1>"
-    return hres(s)
+    template = loader.get_template("testpaper.html")
+    res = template.render()
+    return hres(res)
 
 def result(req):
-    s="<h1>This your test result</h1>"
-    return hres(s)
+    template = loader.get_template("testpaper.html")
+    res = template.render()
+    return hres(res)
