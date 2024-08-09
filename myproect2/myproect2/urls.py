@@ -1,5 +1,5 @@
 """
-URL configuration for word_counter project.
+URL configuration for myproect2 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,5 +19,5 @@ from django.urls import path , include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('wordCounter.urls'))
+    path('', include('p2.urls'))
 ]
