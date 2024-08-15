@@ -28,13 +28,7 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %} " rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: OnePage
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
 </head>
 
 <body class="index-page">
@@ -71,13 +65,20 @@
               <li><a href="#">Dropdown 3</a></li>
               <li><a href="#">Dropdown 4</a></li>
             </ul>
+           
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li ><a href="#contact">Contact</a></li>
+          {% if user.is_authenticated %}
+          <button class="btn-getstarted" onclick="window.location.href='/login'" >Logout</button>
+          {% else %}
+          
+          <button class="btn-getstarted" onclick="window.location.href='/login'"> Login</button>
+          {% endif %}
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#about">Get Started</a>
+      
 
     </div>
   </header>
@@ -92,7 +93,11 @@
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-out">
           <div class="col-xl-7 col-lg-9 text-center">
+            {% if user.is_authenticated %}
+            <h1>Welcome, {{user.username}}</h1>
+            {% else  %}
             <h1>One Page Bootstrap Website Template</h1>
+            {% endif %}
             <p>We are team of talented designers making websites with Bootstrap</p>
           </div>
         </div>
