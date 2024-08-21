@@ -35,15 +35,43 @@
             Over the past few years, I have actively shared my learning journey and achievements on LinkedIn. 
             My posts reflect my growth in various fields:
         </p>
-        <ul>
-            <li><strong>DevOps:</strong> I've been diving deep into DevOps practices, focusing on tools such as Docker, NGINX, Kubernetes, and Git on AWS. My posts highlight hands-on experience and practical applications in setting up and managing containerized environments and CI/CD pipelines.</li>
-            <li><strong>Programming:</strong> My journey includes learning and applying different programming languages and frameworks. From mastering React.js and Django to experimenting with FastAPI and creating dynamic web applications, my LinkedIn updates showcase my evolving skill set.</li>
-            <li><strong>Web Development:</strong> I've been working on various web development projects, including a Pinterest clone and a weather app. These projects demonstrate my proficiency in technologies like Express.js, Bootstrap, and MongoDB.</li>
-            <li><strong>Career Aspirations:</strong> As I aspire to become a Pakistani singer and make significant contributions in the tech field, my LinkedIn posts reflect my dedication and progress in both my creative and technical pursuits.</li>
-        </ul>
+        <div class="cards-container">
+            <div class="card">
+                <h3>DevOps</h3>
+                <p>I've been diving deep into DevOps practices, focusing on tools such as Docker, NGINX, Kubernetes, and Git on AWS. My posts highlight hands-on experience and practical applications in setting up and managing containerized environments and CI/CD pipelines.</p>
+            </div>
+            <div class="card">
+                <h3>Programming</h3>
+                <p>My journey includes learning and applying different programming languages and frameworks. From mastering React.js and Django to experimenting with FastAPI and creating dynamic web applications, my LinkedIn updates showcase my evolving skill set.</p>
+            </div>
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>I've been working on various web development projects, including a Pinterest clone and a weather app. These projects demonstrate my proficiency in technologies like Express.js, Bootstrap, and MongoDB.</p>
+            </div>
+            <div class="card">
+                <h3>Career Aspirations</h3>
+                <p>As I aspire to become a Pakistani singer and make significant contributions in the tech field, my LinkedIn posts reflect my dedication and progress in both my creative and technical pursuits.</p>
+            </div>
+        </div>
         <p>
             Each post is a testament to my continuous learning and commitment to professional development. You can explore detailed updates and achievements in my LinkedIn Posts.
         </p>
-    </div>abubakarkhanlakhwera
-</body>abubakarkhanlakhawera
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            const originalBackgroundColor = document.body.style.backgroundColor;
+    
+            cards.forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    document.body.style.backgroundColor = '#FFAB91'; // Change to your desired color
+                });
+    
+                card.addEventListener('mouseout', () => {
+                    document.body.style.backgroundColor = originalBackgroundColor;
+                });
+            });
+        });
+    </script>
+</body>
 </html>
