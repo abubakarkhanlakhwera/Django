@@ -1,0 +1,83 @@
+/* main.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.profile-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #ddd;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+h1 {
+    margin: 10px 0;
+    color: #333;
+}
+
+p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Experience Section */
+.experience {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.experience h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.experience ul {
+    list-style-type: disc;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.experience li {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.experience a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.experience a:hover {
+    text-decoration: underline;
+}
