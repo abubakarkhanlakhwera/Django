@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abubakar Khan's Profile</title>
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-pic">
+            <img src="{% static '/images/profile.jpg' %}" alt="Profile Picture">
+        </div>
+        <h1>Abubakar Khan</h1>
+        <p>Welcome to my profile! Connect with me on social media.</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61552125577480" target="_blank">
+                <img src="{% static '/images/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="https://www.linkedin.com/in/abubakarkhanlakhwera/" target="_blank">
+                <img src="{% static '/images/linkedin.png' %}" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/abubakarkhanlakhwera" target="_blank">
+                <img src="{% static '/images/github.png' %}" alt="GitHub">
+            </a>
+        </div>
+    </div>
+    
+    <div class="experience">
+        <h2>My Professional Experience</h2>
+        <p>
+            Over the past few years, I have actively shared my learning journey and achievements on LinkedIn. 
+            My posts reflect my growth in various fields:
+        </p>
+        <div class="cards-container">
+            <div class="card">
+                <h3>DevOps</h3>
+                <p>I've been diving deep into DevOps practices, focusing on tools such as Docker, NGINX, Kubernetes, and Git on AWS. My posts highlight hands-on experience and practical applications in setting up and managing containerized environments and CI/CD pipelines.</p>
+            </div>
+            <div class="card">
+                <h3>Programming</h3>
+                <p>My journey includes learning and applying different programming languages and frameworks. From mastering React.js and Django to experimenting with FastAPI and creating dynamic web applications, my LinkedIn updates showcase my evolving skill set.</p>
+            </div>
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>I've been working on various web development projects, including a Pinterest clone and a weather app. These projects demonstrate my proficiency in technologies like Express.js, Bootstrap, and MongoDB.</p>
+            </div>
+            <div class="card">
+                <h3>Career Aspirations</h3>
+                <p>As I aspire to become a Pakistani singer and make significant contributions in the tech field, my LinkedIn posts reflect my dedication and progress in both my creative and technical pursuits.</p>
+            </div>
+        </div>
+        <p>
+            Each post is a testament to my continuous learning and commitment to professional development. You can explore detailed updates and achievements in my LinkedIn Posts.
+        </p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            const originalBackgroundColor = document.body.style.backgroundColor;
+    
+            cards.forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    document.body.style.backgroundColor = '#FFAB91'; // Change to your desired color
+                });
+    
+                card.addEventListener('mouseout', () => {
+                    document.body.style.backgroundColor = originalBackgroundColor;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

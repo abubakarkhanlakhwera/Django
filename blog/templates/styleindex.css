@@ -1,0 +1,27 @@
+.container {
+    margin-top: 20px;
+}
+
+.p-5.mb-4 {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.display-5.fw-bold {
+    color: #343a40;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.col-md-8.fs-4 {
+    color: #6c757d;
+}
