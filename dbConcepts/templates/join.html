@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="POST" action="{% url 'join' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"> </label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email"  value="{{email}}">
+      
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"></label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="First Name"  name="fname" value="{{fname}}">
+        
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"></label>
+        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Last Name" name="lname" value="{{lname}}">
+        
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"></label>
+        <input type="text" class="form-control"  aria-describedby="emailHelp"  placeholder="Age" name="age" value="{{age}}">
+        
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"></label>
+      <input type="password" class="form-control"  aria-describedby="emailHelp"  placeholder="password" name="passwd" value="{{passwd}}">
+      
+    </div>
+
+
+   
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

@@ -1,7 +1,11 @@
-<h1>Hello!</h1>
+{% extends 'base.html' %}
+{% block content %}
+    
+
 {% for item in all %}
 <p>{{item.fname}} {{ item.lname }}</p> <br>
 <p>Email: {{item.email}}</p><br>
 <p>Age: {{item.age}}</p>
 <hr>
 {% endfor %}
+{% endblock %}
