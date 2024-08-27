@@ -24,7 +24,7 @@ def join(req):
             messages.error(req, "There was an error!")  # Changed to messages.error
             
             return render(req, 'join.html', {
-                'fname': fname,  # Removed extra space in key
+                'fname': fname,  #  Removed extra space in key
                 'lname': lname,
                 'age': age,
                 'email': email,
