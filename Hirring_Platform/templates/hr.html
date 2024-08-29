@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR - Hiring Platform</title>
+    <link rel="stylesheet" href="{% static 'hr.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'hr' %}">HR</a></li>
+                <li><a href="{% url 'candidate_dashboard' %}">Candidate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="job-posting">
+        <h2>HR Dashboard</h2>
+        {% if show_form %}
+            <h3>Post a New Job</h3>
+            <form action="{% url 'post_job' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Post Job</button>
+            </form>
+        {% else %}
+            <p>Welcome to the HR dashboard. To post a job, click <a href="{% url 'post_job' %}">here</a>.</p>
+        {% endif %}
+
+        <h3>Posted Jobs</h3>
+        <div class="job-cards">
+            {% if jobs %}
+            <ul>
+                {% for job in jobs %}
+                    <div class="job-card">
+                        <li>
+                            <span><strong>Title: {{job.title}}</strong><br></span>
+                            <span><strong>Description: {{job.description}}</strong><br></span>
+                            <span><strong>Posted on: {{job.posted_on}}</strong></span><br>
+                            <span><strong>Salary : {{job.salary}}</strong></span>
+                        </li>
+                    </div>
+                {% empty %}
+                    <li>No jobs posted yet.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Jobs available</p>
+        {% endif %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Hiring Platform. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for random color and hover effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const jobCards = document.querySelectorAll('.job-card');
+
+            // Function to generate a random color
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            // Function to lighten a color
+            function lightenColor(color, percent) {
+                const num = parseInt(color.slice(1), 16);
+                const r = (num >> 16) + percent;
+                const b = ((num >> 8) & 0x00FF) + percent;
+                const g = (num & 0x0000FF) + percent;
+                return `#${(0x1000000 + (clamp(r, 255) << 16) + (clamp(b, 255) << 8) + clamp(g, 255)).toString(16).slice(1)}`;
+            }
+
+            // Function to clamp color values
+            function clamp(value, max) {
+                return Math.min(max, Math.max(0, value));
+            }
+
+            // Function to calculate luminance to ensure text is readable
+            function luminance(color) {
+                const rgb = parseInt(color.slice(1), 16);
+                const r = (rgb >> 16) & 0xFF;
+                const g = (rgb >> 8) & 0xFF;
+                const b = rgb & 0xFF;
+
+                const a = [r, g, b].map(function (v) {
+                    v /= 255;
+                    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+                });
+                return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+            }
+
+            // Ensure color contrast is sufficient
+            function ensureReadableColor(color) {
+                const lightColor = lightenColor(color, 40);
+                return luminance(color) > 0.5 ? lightColor : color;
+            }
+
+            // Apply random colors to each job card
+            jobCards.forEach(card => {
+                const randomColor = getRandomColor();
+                card.style.backgroundColor = ensureReadableColor(randomColor);
+                card.style.color = luminance(randomColor) > 0.5 ? '#000' : '#fff'; // Set text color based on background luminance
+
+                // On hover, change to a slightly different shade
+                card.addEventListener('mouseover', () => {
+                    card.style.backgroundColor = lightenColor(randomColor, 20);
+                });
+                card.addEventListener('mouseout', () => {
+                    card.style.backgroundColor = ensureReadableColor(randomColor);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

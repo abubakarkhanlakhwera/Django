@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard</title>
+    <link rel="stylesheet" href="{% static 'candi.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'hr' %}">HR</a></li>
+                <li><a href="{% url 'candidate_dashboard' %}">Candidate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="job-listings">
+        <h2>Available Jobs</h2>
+        <div class="job-cards">
+            {% for job in jobs %}
+            <div class="job-card">
+                <h4>{{ job.title }}</h4>
+                <p>{{ job.description }}</p>
+                <small>Posted on: {{ job.posted_on }}</small>
+                <a href="{% url 'apply_for_job' job.id %}" class="btn">Apply Now</a>
+            </div>
+            {% empty %}
+            <p>No jobs available at the moment.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Hiring Platform. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

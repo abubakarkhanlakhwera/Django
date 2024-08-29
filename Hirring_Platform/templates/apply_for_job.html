@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job</title>
+    <link rel="stylesheet" href="{% static 'candi.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'hr' %}">HR</a></li>
+                <li><a href="{% url 'candidate_dashboard' %}">Candidate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="application-form">
+        <h2>Apply for {{ job.title }}</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Hiring Platform. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
