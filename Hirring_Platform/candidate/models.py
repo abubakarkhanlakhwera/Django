@@ -6,6 +6,7 @@ class Candidate(models.Model):
     phone = models.CharField(max_length=15)
     skills = models.TextField()
     resume = models.FileField(upload_to='resume/')
+    cover_letter = models.TextField(blank=True)
     applied_jobs = models.ManyToManyField('Hr.Job',related_name='candidate',blank=True)
     def __str__(self):
         return self.name

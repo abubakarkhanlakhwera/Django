@@ -1,31 +1,22 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from .models import HRProfile
+from .models import HRProfile, Job
+from candidate.models import Candidate
 
-from django import forms
-from .models import Job
+# HR Profile Form
+class HRProfileForm(forms.ModelForm):
+    class Meta:
+        model = HRProfile
+        fields = ['full_name', 'company_name', 'position_title', 'contact_number', 'email', 'company_website', 'linkedin_profile', 'bio']
 
+# Job Form
 class JobForm(forms.ModelForm):
     class Meta:
         model = Job
-        fields = ['title', 'description', 'location', 'salary']
-        widgets = {
-            'description': forms.Textarea(attrs={'rows': 4}),
-            'salary': forms.NumberInput(attrs={'step': '0.01'}),
-        }
+        fields = ['title', 'description', 'salary', 'location']
 
-
-class HRSignupForm(UserCreationForm):
-    company_name = forms.CharField(max_length=255)
-
+# Job Application Form for Candidate
+class JobApplicationForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['username', 'password1', 'password2', 'company_name']
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        if commit:
-            user.save()
-            hr_profile = HRProfile.objects.create(user=user, company_name=self.cleaned_data['company_name'])
-        return user
+        model = Candidate
+        fields = ['resume', 'cover_letter']  # Assuming these fields exist in Candidate model

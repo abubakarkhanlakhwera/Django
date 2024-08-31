@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}HR Dashboard{% endblock %}
+
+{% block content %}
+<h1>Welcome, {{ hr_profile.full_name }}</h1>
+<p>Here are your posted jobs:</p>
+<ul>
+    {% for job in jobs %}
+        <li>{{ job.title }} - {{ job.location }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

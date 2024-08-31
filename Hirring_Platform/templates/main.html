@@ -12,16 +12,16 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="{% url 'hr' %}">HR</a></li>
+                <li><a href="{% url 'hr_dashboard' %}">HR</a></li>
                 <li><a href="{% url 'candidate_dashboard' %}">Candidate</a></li>
             </ul>
         </nav>
     </header>
-
+   
     <section class="intro">
         <h1>Welcome to the Hiring Platform</h1>
         <p>Your gateway to managing jobs and applying for positions. Choose your role to get started.</p>
-        <a href="{% url 'hr' %}" class="btn">For HR</a>
+        <a href="{% url 'hr_dashboard' %}" class="btn">For HR</a>
         <a href="{% url 'candidate_dashboard' %}" class="btn">For Candidates</a>
     </section>
 

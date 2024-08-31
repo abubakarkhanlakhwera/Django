@@ -17,13 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 
+
+ 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('main.urls'),name='home'),
-    path('hr/',include('Hr.urls'),name='hr'),
-     path('post_job/', include('Hr.urls'), name='post_job'),
-    path('candidate/',include('candidate.urls'),name='candidate'),
-    path('apply/<int:job_id>/', include('candidate.urls'), name='apply_for_job')
+    path('',include('main.urls')),
+    path('hr/', include('Hr.urls')),
+    path('candidate/', include('candidate.urls')),
+      path('accounts/', include('django.contrib.auth.urls')),
+]
+
    
 
-]
+

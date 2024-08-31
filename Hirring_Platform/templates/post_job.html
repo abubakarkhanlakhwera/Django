@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block title %}Post a Job{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Post a New Job</h2>
+    
+    <div class="card shadow p-4">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Post Job</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!-- templates/hr_signup.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>HR Sign Up</h2>
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Account Details</legend>
+        {{ user_form.as_p }}
+    </fieldset>
+    
+    <fieldset>
+        <legend>HR Profile Details</legend>
+        {{ profile_form.as_p }}
+    </fieldset>
+    
+    <button type="submit">Sign Up</button>
+</form>
+
+<p>Already have an account? <a href="{% url 'signin' %}">Log in here</a>.</p>
+{% endblock %}
