@@ -1,0 +1,20 @@
+{% extends 'blogApp/base.html' %}
+
+{% block body %}
+    <div class="container">
+        <hr>
+        <p class="fs-1 text-center"><strong class="text-secondary">Login Form</strong></p>
+        <form action="" method=POST class="form-control">
+            
+        <form action="" method="post" class="form-control">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+            
+        
+        <hr>
+
+    </div>
+
+{% endblock body %}
