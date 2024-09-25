@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Price Details
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg" style="border-radius: 15px; overflow: hidden;">
+                <!-- Image with fixed height and rounded corners -->
+                <img src="{{ price.image.url }}" class="card-img-top" alt="{{ price.name }}" style="height: 300px; object-fit: cover;">
+                <div class="card-body text-center" style="background-color: #f8f9fa;">
+                    <h2 class="card-title" style="font-size: 2rem; font-weight: bold; color: #333;">{{ price.name }}</h2>
+                    
+                    <!-- Price tag -->
+                    <div class="mt-4" style="font-size: 1.5rem; font-weight: bold; color: #28a745;">
+                        Price: {{ price.price }} PKR
+                    </div>
+                    
+                    <!-- Discount with subtle background -->
+                    {% if price.discount > 0 %}
+                    <div class="mt-3 p-2" style="background-color: #e2f3e9; border-radius: 10px; font-size: 1.2rem; color: #155724;">
+                        Special Discount: {{ price.discount }}%
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Date Added -->
+                    <div class="text-muted mt-4">
+                        <small>Added on: {{ price.date_added|date:"F d, Y" }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

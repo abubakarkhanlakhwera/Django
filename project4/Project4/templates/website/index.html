@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="mb-4">Welcome to the Chai Collection</h1>
+            <p class="lead mb-4">Discover a variety of chai and explore detailed information about each type.</p>
+            
+            <a href="{% url 'all_chai' %}" class="btn btn-primary btn-lg">
+                View All Chai Varieties
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

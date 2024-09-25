@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Chai Page{% endblock  %}
+{% block content %}
+</head>
+<body>
+    <h1>All types of available chai</h1>
+    
+  
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        {% for chai in chais %}
+        <div class="col">
+            <div class="card h-100" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <!-- Standard image size with fixed height -->
+                <img src="{{ chai.image.url }}" class="card-img-top" alt="{{ chai.name }}" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                <div class="card-body text-center" style="background-color: #e9ecef; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                    <h2 class="card-title" style="font-size: 1.5rem; font-weight: bold; color: #333;">{{ chai.name }}</h2>
+                    <a href="{% url 'chai_detail' chai.id %}">
+                    <!-- Add button with chai type and id -->
+                    <button type='button' class="btn btn-primary mt-3" style="font-size: 1rem; padding: 8px 16px;">{{ chai.type }} - {{ chai.id }} </button>
+                    </a>
+                    <a href="{% url 'Price' chai.id %}">
+                        <!-- Add button with chai type and id -->
+                        <button type='button' class="btn btn-primary mt-3" style="font-size: 1rem; padding: 8px 16px;">Price is {{chai.price}} </button>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+    
+    
+
+    
+</body>
+</html>
+{% endblock content %}
+    
